@@ -1,12 +1,13 @@
 import React from "react";
+import ProgressBar from "./ProgressBar";
 import { minutesToDuration, secondsToDuration } from "../utils/duration";
 
-
 function Session({ session, focusDuration, breakDuration }) {
-  const duration = 
-  session?.label === "Focusing" ? focusDuration : breakDuration;
-  
-    return (
+  const duration =
+    session?.label === "Focusing" ? focusDuration : breakDuration;
+  const totalTime = duration * 60;
+
+  return (
     session && (
       <div>
         {/* DONE?: This area should show only when there is an active focus or break - i.e. the session is running or is paused */}
@@ -22,20 +23,10 @@ function Session({ session, focusDuration, breakDuration }) {
             </p>
           </div>
         </div>
-        <div className="row mb-2">
-          <div className="col">
-            <div className="progress" style={{ height: "20px" }}>
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="0" // TODO: Increase aria-valuenow as elapsed time increases
-                style={{ width: "0%" }} // TODO: Increase width % as elapsed time increases
-              />
-            </div>
-          </div>
-        </div>
+        <ProgressBar
+          currentTime={Math.abs(session.timeRemaining - totalTime)}
+          totalTime={totalTime}
+        />
       </div>
     )
   );
