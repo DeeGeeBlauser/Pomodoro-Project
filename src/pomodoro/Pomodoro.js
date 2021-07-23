@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classNames from "../utils/class-names";
 import { minutesToDuration } from "../utils/duration";
 import useInterval from "../utils/useInterval";
-import Session from "./Session"
+import Session from "./Session";
 
 // These functions are defined outside of the component to insure they do not have access to state
 // and are, therefore more likely to be pure.
@@ -234,7 +234,11 @@ function Pomodoro() {
           </div>
         </div>
       </div>
-      <Session session={session}/>
+      <Session
+        session={session}
+        focusDuration={focusDuration}
+        breakDuration={breakDuration}
+      />
     </div>
   );
 }
