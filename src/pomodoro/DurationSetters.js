@@ -1,3 +1,6 @@
+//Component that holds both duration setter components
+//(Focus Setter and Break Setter)
+
 import React from "react";
 import FocusSetter from "./FocusSetter";
 import BreakSetter from "./BreakSetter";

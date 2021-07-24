@@ -59,6 +59,7 @@ function Pomodoro() {
   const [focusDuration, setFocusDuration] = useState(25);
   const [breakDuration, setBreakDuration] = useState(5);
 
+  //Setting the min/max Focus/Break to variables so they are dynamic
   const minBreak = 1;
   const maxBreak = 15;
   const minFocus = 5;
@@ -105,6 +106,7 @@ function Pomodoro() {
 
   function stop() {
     // Implement stopping the current focus or break session.
+    // Reset the session state to initial state of null
     // Placed in a callback function bc wo it you would have a race condition
     // Would not know what was completed first
     setIsTimerRunning(() => {
@@ -113,19 +115,26 @@ function Pomodoro() {
     });
   }
 
+  //Event handler to increase Focus Duration state variable.
+  //when the "plus" button is clicked
   const handleFocusIncrease = () =>
     setFocusDuration((currentDuration) =>
       Math.min(maxFocus, currentDuration + 5)
     );
+  //Event handler to decrease Focus Duration state variable.
+  //when the "minus" button is clicked
   const handleFocusDecrease = () =>
     setFocusDuration((currentDuration) =>
       Math.max(minFocus, currentDuration - 5)
     );
-
+  //Event handler to increase Break Duration state variable.
+  //when the "plus" button is clicked
   const handleBreakIncrease = () =>
     setBreakDuration((currentDuration) =>
       Math.min(maxBreak, currentDuration + 1)
     );
+  //Event handler to decrease Break Duration state variable.
+  //when the "minus" button is clicked
   const handleBreakDecrease = () =>
     setBreakDuration((currentDuration) =>
       Math.max(minBreak, currentDuration - 1)

@@ -1,3 +1,6 @@
+//Component for the Play/Pause and Stop buttons that control
+//the timer.
+
 import React from "react";
 import classNames from "../utils/class-names";
 

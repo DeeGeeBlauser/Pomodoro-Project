@@ -1,3 +1,8 @@
+//Component that shows the status of the current session.
+//Rendering is conditional based on if there is indeed a current
+//session.
+//The Progress Bar component is housed inside this component.
+
 import React from "react";
 import ProgressBar from "./ProgressBar";
 import { minutesToDuration, secondsToDuration } from "../utils/duration";

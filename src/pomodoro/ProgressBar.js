@@ -1,3 +1,7 @@
+//Component that shows the status bar and its progress.
+//Status Bar progress will update continuously as the session
+//advances.
+
 import React from "react";
 
 function ProgressBar({ currentTime, totalTime }) {

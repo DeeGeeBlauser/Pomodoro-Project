@@ -1,3 +1,5 @@
+//component for setting the Break Duration
+
 import React from "react";
 import { minutesToDuration } from "../utils/duration";
 
